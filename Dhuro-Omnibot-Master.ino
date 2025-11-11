@@ -1,3 +1,14 @@
+/* 
+
+Project     : Dhuro Omnibot Master 
+Author      : Parama Diptya Widayaka
+Affiliation : Dhurobotic
+Contact     : diptyawidayaka@gmail.com
+Description : This is a program for Dhuro Omnibot Platform. Four omniwheels holonomic mobile robot
+              This program is specifically used for Dhuro Omnibot master board for research and educational purposes only.
+
+*/
+
 #include "robot_display.h"
 #include "robot_gpio.h"
 #include "robot_serial.h"
