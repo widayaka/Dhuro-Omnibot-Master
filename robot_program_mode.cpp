@@ -218,6 +218,48 @@ void robotJoystickControl(){
   }
 }
 
+void robotROS2LineFollowing(){
+  int error_pixel = SerialData1[1];
+  int linear_speed = SerialData1[2];
+  int angular_speed = SerialData1[3];
+
+  display.clearDisplay(); display.setTextSize(1); display.setTextColor(SSD1306_WHITE);
+
+  display.setCursor(0,0);     display.print("Line Following");
+  
+  display.setCursor(0,10);    display.print("Error Position");
+  display.setCursor(90,10);   display.print(":");
+  display.setCursor(100, 10); display.print(error_pixel);
+
+  display.setCursor(0, 20); display.print("Linear Speed");
+  display.setCursor(90, 20); display.print(":");
+  display.setCursor(100, 20); display.print(linear_speed);
+
+  display.setCursor(0, 30); display.print("Angular Speed");
+  display.setCursor(90,30);  display.print(":");
+  display.setCursor(100, 30); display.print(angular_speed);
+
+  display.display();
+
+  dataPackage2 = (String) startDataIdentifier + menu + error_pixel + dataSeparator + linear_speed + dataSeparator + angular_speed + stopDataIdentifier;
+  MasterSerial2.println(String(dataPackage2));
+
+  while (PUSH_BUTTON_OK_IS_PRESSED) {
+    for (int i=0; i<10; i++){
+      int speedStop = 0;
+      FlagMode = 1;
+      dataPackage2 = (String) startDataIdentifier + FlagMode + dataSeparator +
+                                                   speedStop + dataSeparator + 
+                                                   speedStop + dataSeparator + 
+                                                   speedStop + dataSeparator + 
+                                                   speedStop + stopDataIdentifier;
+      MasterSerial2.println(String(dataPackage2));
+    }    
+    delay(100);
+    menu = 1;
+  }
+}
+
 void onConnect(){
   display.clearDisplay(); display.setTextSize(1); display.setTextColor(SSD1306_WHITE);
   display.setCursor(0,0);    display.print("Joystick Connected...");

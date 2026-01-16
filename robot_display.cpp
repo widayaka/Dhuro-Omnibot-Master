@@ -225,7 +225,6 @@ void robotProgramMode(){
             display.setCursor(10,50);   display.println(F("ROS2 Line Follow"));
             display.display(); 
             while (PUSH_BUTTON_OK_IS_PRESSED) menu=12; break;
-            break;
 
     // ROS2 Wall Follow
     case 7: display.setTextSize(1);     display.setTextColor(SSD1306_WHITE);
