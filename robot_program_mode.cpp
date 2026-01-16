@@ -241,7 +241,7 @@ void robotROS2LineFollowing(){
 
   display.display();
 
-  dataPackage2 = (String) startDataIdentifier + menu + error_pixel + dataSeparator + linear_speed + dataSeparator + angular_speed + stopDataIdentifier;
+  dataPackage2 = (String) startDataIdentifier + menu + dataSeparator + error_pixel + dataSeparator + linear_speed + dataSeparator + angular_speed + stopDataIdentifier;
   MasterSerial2.println(String(dataPackage2));
 
   while (PUSH_BUTTON_OK_IS_PRESSED) {
